@@ -1,4 +1,4 @@
-class PersonPresenter < Carnival::BaseAdminPresenter
+class CityPresenter < Carnival::BaseAdminPresenter
   field :id,
     actions: [:index, :show, :csv, :pdf],
     searchable: true,
@@ -9,34 +9,17 @@ class PersonPresenter < Carnival::BaseAdminPresenter
     searchable: true,
     sortable: true,
     advanced_search: {operator: :like}
-  field :email,
+  field :country,
     actions: [:index, :new, :edit, :show, :csv, :pdf],
     searchable: true,
     sortable: true,
     advanced_search: {operator: :equal}
-  field :bio,
+  field :state,
     actions: [:index, :new, :edit, :show, :csv, :pdf],
-    as: :ckeditor, 
-    input_html: { ckeditor: {toolbar: 'Small'} }
-  field :birthday,
-    actions: [:index, :new, :edit, :show, :csv, :pdf],
+    searchable: true,
     sortable: true,
-    advanced_search: {operator: :between}
-  field :photos,
-    actions: [:new, :edit, :show],
-    nested_form: true, 
-    nested_form_allow_destroy: true, 
-    nested_form_modes: [:new]
-  field :addresses,
-    actions: [:new, :edit, :show],
-    nested_form: true, 
-    nested_form_allow_destroy: true, 
-    nested_form_modes: [:new]
-  field :phones,
-    actions: [:new, :edit, :show],
-    nested_form: true, 
-    nested_form_allow_destroy: true, 
-    nested_form_modes: [:new]
+    advanced_search: {operator: :equal},
+    depends_on: :country
   field :updated_at,
     actions: [:index, :show, :csv, :pdf],
     sortable: true,
@@ -45,7 +28,6 @@ class PersonPresenter < Carnival::BaseAdminPresenter
     actions: [:index, :show, :csv, :pdf],
     sortable: true,
     advanced_search: {operator: :between}
-
 
   action :new
   action :edit
