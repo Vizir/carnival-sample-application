@@ -28,17 +28,17 @@ Carnival.configure do |config|
         {
           :label => "menu.countries",
           :class => "countries",
-          :link => "/admin/countries"
+          :link => "/countries"
         },
         {
           :label => "menu.states",
           :class => "states",
-          :link => "/admin/states"
+          :link => "/states"
         },
         {
           :label => "menu.cities",
           :class => "cities",
-          :link => "/admin/cities"
+          :link => "/cities"
         }
       ]
     }
