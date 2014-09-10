@@ -15,7 +15,9 @@ class StatePresenter < Carnival::BaseAdminPresenter
     sortable: true,
     advanced_search: {operator: :equal}
   field :country,
-    actions: [:index, :new, :edit, :show, :csv, :pdf],
+    actions: [:new, :edit]
+  field 'country.name',
+    actions: [:index, :show, :csv, :pdf],
     searchable: true,
     sortable: true,
     advanced_search: {operator: :equal}

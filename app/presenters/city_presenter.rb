@@ -9,17 +9,25 @@ class CityPresenter < Carnival::BaseAdminPresenter
     searchable: true,
     sortable: true,
     advanced_search: {operator: :like}
-  field :country,
-    actions: [:index, :new, :edit, :show, :csv, :pdf],
+  field 'country.name',
+    actions: [:index, :show, :csv, :pdf],
     searchable: true,
     sortable: true,
     advanced_search: {operator: :equal}
-  field :state,
-    actions: [:index, :new, :edit, :show, :csv, :pdf],
+
+  field :country,
+    actions: [:new, :edit]
+
+  field 'state.name',
+    actions: [:index, :show, :csv, :pdf],
     searchable: true,
     sortable: true,
-    advanced_search: {operator: :equal},
+    advanced_search: {operator: :equal}
+
+  field :state,
+    actions: [:new, :edit],
     depends_on: :country
+
   field :updated_at,
     actions: [:index, :show, :csv, :pdf],
     sortable: true,
