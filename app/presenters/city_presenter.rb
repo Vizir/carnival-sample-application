@@ -12,23 +12,24 @@ class CityPresenter < Carnival::BaseAdminPresenter
   field 'country.name',
     actions: [:index, :show, :csv, :pdf],
     searchable: true,
-    sortable: true,
+    sortable: true
+  field :country,
+    actions: [:new, :edit],
     advanced_search: {operator: :equal}
 
-  field :country,
-    actions: [:new, :edit]
 
   field 'state.name',
     actions: [:index, :show, :csv, :pdf],
     searchable: true,
-    sortable: true,
-    advanced_search: {operator: :equal}
+    sortable: true
 
   field :state,
     actions: [:new, :edit],
+    advanced_search: {operator: :equal},
     depends_on: :country
 
   field :updated_at,
+    date_filter: true,
     actions: [:index, :show, :csv, :pdf],
     sortable: true,
     advanced_search: {operator: :between}
@@ -41,4 +42,7 @@ class CityPresenter < Carnival::BaseAdminPresenter
   action :edit
   action :show
   action :destroy
+  action :pdf
+  action :csv
+  
 end

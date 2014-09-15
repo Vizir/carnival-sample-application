@@ -53,7 +53,7 @@ Rails.application.configure do
     #                 :show_online_status => true }
     # Bullet.rails_logger = true
     # Bullet.airbrake = true
-    Bullet.add_footer = true
+    Bullet.add_footer = false
   end
 
 end

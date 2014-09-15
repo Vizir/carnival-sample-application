@@ -9,5 +9,10 @@ Rails.application.routes.draw do
     resources :states
     resources :cities
     resources :photos
+    resources :phones
+
+    post 'phones/add_to_mob' => 'phones#add_to_mobile', as: :add_phone_to_mobile
+    post 'phones/add_to_home' => 'phones#add_to_home', as: :add_phone_to_home
+    post 'phones/add_all_to_mobile' => 'phones#add_all_to_mobile', as: :add_all_to_mobile
   end
 end

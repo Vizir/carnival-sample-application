@@ -1,4 +1,7 @@
 class CitiesController < Carnival::BaseAdminController
+  def is_from_acre?
+        
+  end
 
   private
   def permitted_params

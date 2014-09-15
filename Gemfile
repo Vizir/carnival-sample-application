@@ -38,9 +38,10 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem "activerecord-import",'~> 0.4.0'
+
 gem "devise"
 
-gem "haml-rails"
 
 gem "carnival", :path => "../../"
 

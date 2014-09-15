@@ -27,4 +27,6 @@ class CountryPresenter < Carnival::BaseAdminPresenter
   action :edit
   action :show
   action :destroy
+  action :pdf
+  action :csv
 end

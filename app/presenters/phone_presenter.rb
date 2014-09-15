@@ -4,11 +4,15 @@ class PhonePresenter < Carnival::BaseAdminPresenter
     searchable: true,
     sortable: true,
     advanced_search: {operator: :equal}
-  field :phone_type,
-    actions: [:index, :new, :edit, :show, :csv, :pdf],
+  field 'phone_type.name',
+    actions: [:index, :show, :csv, :pdf],
     searchable: true,
     sortable: true,
     advanced_search: {operator: :equal}
+
+  field :phone_type,
+    actions: [:new, :edit]
+
   field :number,
     actions: [:index, :new, :edit, :show, :csv, :pdf],
     searchable: true,
@@ -27,4 +31,22 @@ class PhonePresenter < Carnival::BaseAdminPresenter
   action :edit
   action :show
   action :destroy
+  action :add_to_mobile,
+          :remote => true,
+          :method => 'POST',
+          :show_func => :not_mobile?
+
+  action :add_to_home,
+          :remote => true,
+          :method => 'POST',
+          :show_func => :not_home?
+
+  batch_action :add_all_to_mobile
+
+  scope :mobile
+  scope :home
+  scope :all, default: true
+
+  action :csv
+  action :pdf
 end
