@@ -19,9 +19,18 @@ class CountryPresenter < Carnival::BaseAdminPresenter
     sortable: true,
     advanced_search: {operator: :between}
   field :created_at,
+    date_filter: true,
     actions: [:index, :show, :csv, :pdf],
     sortable: true,
     advanced_search: {operator: :between}
+  field :states,
+    actions: [:new, :edit],
+    nested_form: true,
+    nested_form_modes: [:new],
+    nested_form_allow_destroy: true
+
+  scope :all
+  scope :brasil
 
   action :new
   action :edit

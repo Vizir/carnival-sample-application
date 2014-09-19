@@ -6,4 +6,7 @@ class Country < ActiveRecord::Base
   has_many :addresses
   has_many :people, :through => :addresses
 
+  accepts_nested_attributes_for :states, :allow_destroy => true
+  scope :brasil, -> {where(:code => "BR")}
+
 end
