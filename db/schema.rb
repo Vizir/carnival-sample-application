@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140922143128) do
+ActiveRecord::Schema.define(version: 20140922150155) do
 
   create_table "address_types", force: true do |t|
     t.string   "name"
@@ -131,6 +131,11 @@ ActiveRecord::Schema.define(version: 20140922143128) do
     t.integer "user_id"
     t.integer "comment_id"
     t.integer "file_id"
+  end
+
+  create_table "posts_tags", force: true do |t|
+    t.integer "post_id"
+    t.integer "tag_id"
   end
 
   create_table "states", force: true do |t|
