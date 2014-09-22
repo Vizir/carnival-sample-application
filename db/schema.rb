@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907162406) do
+ActiveRecord::Schema.define(version: 20140922143128) do
 
   create_table "address_types", force: true do |t|
     t.string   "name"
@@ -66,11 +66,23 @@ ActiveRecord::Schema.define(version: 20140907162406) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
+  create_table "comments", force: true do |t|
+    t.string "comment"
+  end
+
   create_table "countries", force: true do |t|
     t.string   "name"
     t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "files", force: true do |t|
+    t.string   "title"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
   end
 
   create_table "people", force: true do |t|
@@ -112,6 +124,15 @@ ActiveRecord::Schema.define(version: 20140907162406) do
 
   add_index "photos", ["person_id"], name: "index_photos_on_person_id"
 
+  create_table "posts", force: true do |t|
+    t.string  "title"
+    t.text    "text"
+    t.integer "status"
+    t.integer "user_id"
+    t.integer "comment_id"
+    t.integer "file_id"
+  end
+
   create_table "states", force: true do |t|
     t.string   "name"
     t.string   "code"
@@ -121,6 +142,10 @@ ActiveRecord::Schema.define(version: 20140907162406) do
   end
 
   add_index "states", ["country_id"], name: "index_states_on_country_id"
+
+  create_table "tags", force: true do |t|
+    t.string "name"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
