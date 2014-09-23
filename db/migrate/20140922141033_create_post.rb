@@ -3,7 +3,7 @@ class CreatePost < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :title
       t.text :text
-      t.integer :status
+      t.integer :status, default: 1
     end
   end
 end
