@@ -252,3 +252,7 @@ input::-webkit-inner-spin-button {
   background: #007ae1;
   color: #fff; 
 }
+
+.edit-user form{
+  margin-top: -250px; 
+}
