@@ -12,7 +12,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20140927184139) do
-
   create_table "address_types", force: true do |t|
     t.string   "name"
     t.datetime "created_at"

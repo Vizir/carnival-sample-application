@@ -9,4 +9,6 @@ class Country < ActiveRecord::Base
   has_attached_file :flag, styles: { medium: '640x480>', thumb: '160x120>'  }, default_url: 'missing.png'
 
   validates_attachment :flag, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
+  accepts_nested_attributes_for :states, :allow_destroy => true
+  scope :brasil, -> {where(:code => "BR")}
 end
