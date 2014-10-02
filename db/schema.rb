@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140911170956) do
+ActiveRecord::Schema.define(version: 20140927184139) do
 
   create_table "address_types", force: true do |t|
     t.string   "name"
@@ -71,6 +71,10 @@ ActiveRecord::Schema.define(version: 20140911170956) do
     t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "flag_file_name"
+    t.string   "flag_content_type"
+    t.integer  "flag_file_size"
+    t.datetime "flag_updated_at"
   end
 
   create_table "people", force: true do |t|
@@ -80,7 +84,6 @@ ActiveRecord::Schema.define(version: 20140911170956) do
     t.date     "birthday"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "sex"
   end
 
   create_table "phone_types", force: true do |t|

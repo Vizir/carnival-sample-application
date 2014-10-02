@@ -14,12 +14,14 @@ class CountryPresenter < Carnival::BaseAdminPresenter
     searchable: true,
     sortable: true,
     advanced_search: {operator: :equal}
+  field :flag,
+    actions: [:index, :new, :edit, :show]
   field :updated_at,
-    actions: [:index, :show, :csv, :pdf],
+    actions: [:show, :csv, :pdf],
     sortable: true,
     advanced_search: {operator: :between}
   field :created_at,
-    actions: [:index, :show, :csv, :pdf],
+    actions: [:show, :csv, :pdf],
     sortable: true,
     advanced_search: {operator: :between}
 
@@ -29,4 +31,8 @@ class CountryPresenter < Carnival::BaseAdminPresenter
   action :destroy
   action :pdf
   action :csv
+
+  # index_as :list
+  # index_as :table
+  index_as :grid
 end

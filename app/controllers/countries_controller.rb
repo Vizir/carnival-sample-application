@@ -2,6 +2,6 @@ class CountriesController < Carnival::BaseAdminController
 
   private
   def permitted_params
-    params.permit(country: [:name, :code])
+    params.permit(country: [:name, :code, :flag])
   end
 end
