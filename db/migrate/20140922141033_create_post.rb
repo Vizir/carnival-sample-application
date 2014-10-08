@@ -4,6 +4,7 @@ class CreatePost < ActiveRecord::Migration
       t.string :title
       t.text :text
       t.integer :status, default: 1
+      t.timestamps
     end
   end
 end

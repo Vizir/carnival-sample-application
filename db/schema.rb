@@ -67,8 +67,10 @@ ActiveRecord::Schema.define(version: 20140922150155) do
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
   create_table "comments", force: true do |t|
-    t.string  "comment"
-    t.integer "post_id"
+    t.string   "comment"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "countries", force: true do |t|
@@ -124,13 +126,17 @@ ActiveRecord::Schema.define(version: 20140922150155) do
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
     t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "posts", force: true do |t|
-    t.string  "title"
-    t.text    "text"
-    t.integer "status",  default: 1
-    t.integer "user_id"
+    t.string   "title"
+    t.text     "text"
+    t.integer  "status",     default: 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "posts_tags", force: true do |t|
@@ -149,7 +155,9 @@ ActiveRecord::Schema.define(version: 20140922150155) do
   add_index "states", ["country_id"], name: "index_states_on_country_id"
 
   create_table "tags", force: true do |t|
-    t.string "name"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

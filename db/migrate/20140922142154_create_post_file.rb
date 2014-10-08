@@ -4,6 +4,7 @@ class CreatePostFile < ActiveRecord::Migration
       t.string :title
       t.attachment :file
       t.integer :post_id
+      t.timestamps
     end
   end
 end

@@ -21,7 +21,12 @@ class PostPresenter < Carnival::BaseAdminPresenter
     searchable: true,
     sortable: true,
     advanced_search: {operator: :equal}
-  
+
+  field :tags,
+    actions: [:new, :show, :edit],
+    nested_form: true,
+    nested_form_modes: [:associate]
+    
   field :post_files,
     actions: [:new, :show, :edit],
     nested_form: true,

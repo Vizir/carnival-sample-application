@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :phones
     resources :posts
     resources :post_files
+    resources :tags
 
     post 'phones/add_to_mob' => 'phones#add_to_mobile', as: :add_phone_to_mobile
     post 'phones/add_to_home' => 'phones#add_to_home', as: :add_phone_to_home

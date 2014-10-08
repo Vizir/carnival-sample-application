@@ -9,6 +9,8 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :post_files, allow_destroy: true,
     reject_if: proc { |attributes| attributes['title'].blank? }
 
+  accepts_nested_attributes_for :tags
+
   ACTIVE = 1
   INACTIVE = 2
 
