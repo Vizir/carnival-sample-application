@@ -3,42 +3,25 @@ Carnival.configure do |config|
   Rails.application.config.assets.precompile += %w( carnival/* )
   config.menu =
   {
-    :admin => {
-          :label => "aaa",
-          :class => "ssss",
-          :link => "ddd",
-          :subs => [
-            {
-              :label => "menu.testes",
-              :class => "tst",
-              :link => "/admin/testes"
-            },
-            {
-              :label => "55555",
-              :class => "66666",
-              :link => "777777"
-            }
-          ]
-    },
-    :locations => {
-      :label => "menu.locations",
+    :Post => {
+      :label => "menu.post",
       :class => "",
       :link => "#",
       :subs => [
         {
-          :label => "menu.countries",
+          :label => "menu.post",
           :class => "countries",
-          :link => "/countries"
+          :link => "/posts"
         },
         {
-          :label => "menu.states",
-          :class => "states",
-          :link => "/states"
+          :label => "menu.tags",
+          :class => "tags",
+          :link => "/tags"
         },
         {
-          :label => "menu.cities",
-          :class => "cities",
-          :link => "/cities"
+          :label => "menu.comment",
+          :class => "comments",
+          :link => "/comments"
         }
       ]
     }

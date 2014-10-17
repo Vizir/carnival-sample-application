@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resources :posts
     resources :post_files
     resources :tags
+    resources :comments
+    resources :blog
+
+    get 'blog/:id/show_post' => 'blog#show_post', as: :show_post
 
     post 'phones/add_to_mob' => 'phones#add_to_mobile', as: :add_phone_to_mobile
     post 'phones/add_to_home' => 'phones#add_to_home', as: :add_phone_to_home

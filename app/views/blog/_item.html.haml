@@ -1,0 +1,4 @@
+%a{href: "#{show_post_path(id: post.id)}"}
+  %img{alt: "", src: post.cover}
+=link_to post.title, show_post_path(id: post.id)
+=post.created_at.strftime('%d %b')

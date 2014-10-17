@@ -11,6 +11,10 @@ class PostPresenter < Carnival::BaseAdminPresenter
     searchable: true,
     sortable: true,
     advanced_search: {operator: :like}
+
+  field :cover,
+    actions: [:new, :edit, :show],
+    as: :admin_previewable_file
   
   field :text,
     actions: [:new, :edit, :show],

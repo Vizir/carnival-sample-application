@@ -27,16 +27,6 @@ class PersonPresenter < Carnival::BaseAdminPresenter
     nested_form: true, 
     nested_form_allow_destroy: true, 
     nested_form_modes: [:new]
-  field :addresses,
-    actions: [:new, :edit, :show],
-    nested_form: true, 
-    nested_form_allow_destroy: true, 
-    nested_form_modes: [:new]
-  field :phones,
-    actions: [:new, :edit, :show],
-    nested_form: true, 
-    nested_form_allow_destroy: true, 
-    nested_form_modes: [:new]
   field :updated_at,
     actions: [:index, :show, :csv, :pdf],
     sortable: true,

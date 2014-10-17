@@ -1,0 +1,8 @@
+-@tags.each do |tag|
+  = link_to tag.name, blog_index_path(tag: tag.id)
+
+
+
+- @posts.each do |post|
+  = render partial: 'item', locals: {post: post}
+ 

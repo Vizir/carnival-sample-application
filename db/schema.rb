@@ -11,44 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140922150155) do
-
-  create_table "address_types", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "addresses", force: true do |t|
-    t.string   "address"
-    t.string   "number"
-    t.string   "complement"
-    t.string   "zipcode"
-    t.integer  "city_id"
-    t.integer  "state_id"
-    t.integer  "country_id"
-    t.integer  "address_type_id"
-    t.integer  "person_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "addresses", ["address_type_id"], name: "index_addresses_on_address_type_id"
-  add_index "addresses", ["city_id"], name: "index_addresses_on_city_id"
-  add_index "addresses", ["country_id"], name: "index_addresses_on_country_id"
-  add_index "addresses", ["person_id"], name: "index_addresses_on_person_id"
-  add_index "addresses", ["state_id"], name: "index_addresses_on_state_id"
-
-  create_table "cities", force: true do |t|
-    t.string   "name"
-    t.integer  "state_id"
-    t.integer  "country_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "cities", ["country_id"], name: "index_cities_on_country_id"
-  add_index "cities", ["state_id"], name: "index_cities_on_state_id"
+ActiveRecord::Schema.define(version: 20141008195345) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -71,13 +34,7 @@ ActiveRecord::Schema.define(version: 20140922150155) do
     t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "countries", force: true do |t|
-    t.string   "name"
-    t.string   "code"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.boolean  "approved",   default: true
   end
 
   create_table "people", force: true do |t|
@@ -88,23 +45,6 @@ ActiveRecord::Schema.define(version: 20140922150155) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "phone_types", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "phones", force: true do |t|
-    t.string   "number"
-    t.integer  "phone_type_id"
-    t.integer  "phoneable_id"
-    t.string   "phoneable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "phones", ["phone_type_id"], name: "index_phones_on_phone_type_id"
 
   create_table "photos", force: true do |t|
     t.string   "image_file_name"
@@ -133,7 +73,11 @@ ActiveRecord::Schema.define(version: 20140922150155) do
   create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "text"
-    t.integer  "status",     default: 1
+    t.integer  "status",             default: 1
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -143,16 +87,6 @@ ActiveRecord::Schema.define(version: 20140922150155) do
     t.integer "post_id"
     t.integer "tag_id"
   end
-
-  create_table "states", force: true do |t|
-    t.string   "name"
-    t.string   "code"
-    t.integer  "country_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "states", ["country_id"], name: "index_states_on_country_id"
 
   create_table "tags", force: true do |t|
     t.string   "name"
