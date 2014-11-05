@@ -37,7 +37,13 @@ class PostPresenter < Carnival::BaseAdminPresenter
     nested_form_modes: [:new],
     nested_form_allow_destroy: true
 
+  field :updated_at,
+    actions: [:show, :csv, :pdf],
+    sortable: true,
+    advanced_search: {operator: :between}
+
   field :created_at,
+    date_filter: true,
     actions: [:index, :show, :csv, :pdf],
     sortable: true,
     advanced_search: {operator: :between}
@@ -46,4 +52,9 @@ class PostPresenter < Carnival::BaseAdminPresenter
   action :edit
   action :show
   action :destroy
+  action :pdf
+  action :csv
+  # index_as :list
+  # index_as :table
+  index_as :grid
 end
